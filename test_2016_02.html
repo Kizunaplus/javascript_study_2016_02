@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ja">
+<head>
+ <title>勉強会 2016年02月</title>
+ <meta charset="utf-8">
+ <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+ <script type="text/javascript" src="jquery.min.js"></script>
+</head>
+<body>
+■Javascript課題01<br>
+空欄に値を設定し、どのように動作するか確認してみよう。<br>
+<br>
+<xmp style="display:inline">
+<script type="text/javascript">
+<!--
+ function display_message_01(message) {
+   // display_messege_01のmessegeの内容を表示する。
+   document.getElementById("quest_01_result").innerHTML = message;
+ }
+// -->
+</script>
+<a href="#" onclick="display_message_01('</xmp><input type="text" id="quest_01_input" value="" placeholder="Hello World" /><xmp style="display:inline">'); return false">ここをクリック</a><br>
+結果：[<label id="quest_01_result"></label>]
+</xmp>
+<br><br>
+<script type="text/javascript">
+<!--
+ function display_message_01(message) {
+   document.getElementById("quest_01_result").innerHTML = message;
+ }
+// -->
+</script>
+ <a href="#" onclick="display_message_01(document.getElementById('quest_01_input').value); return false;">ここをクリック</a><br>
+ 結果：[<label id="quest_01_result"></label>]
+
+ <hr>
+
+ ■Javascript課題02<br>
+ 空欄に計算式を設定し、どのように動作するか確認してみよう。<br>
+
+<xmp style="display:inline">
+<script type="text/javascript">
+<!--
+ function display_message_02(message) {
+   var canvas = document.getElementById('quest_02_result');
+   if (canvas.getContext) {
+	 // messageの計算式を計算する。
+     var value = eval(message);
+     var context = canvas.getContext('2d');
+	 // 適当な色を設定する。
+     context.fillStyle = 'rgb('+Math.round(Math.random()*64+64)+','+Math.round(Math.random()*64+64)+','+Math.round(Math.random()*64+64)+')';
+	// 計算結果が辺の長さの四角形を描画する。
+     context.fillRect(10,10,value,value); 
+   }
+ }
+// -->
+</script>
+<a href="#" onclick="display_message_02('</xmp><input type="text" id="quest_02_input" value="" placeholder="計算式 (10 + 10)"/><xmp style='display:inline'>'); return false">ここをクリック</a><br>
+結果： <canvas id="quest_02_result"></canvas>
+</xmp>
+
+<br><br>
+
+<script type="text/javascript">
+<!--
+ function display_message_02(message) {
+   var canvas = document.getElementById('quest_02_result');
+   if (canvas.getContext) {
+     var value = eval(message);
+     var context = canvas.getContext('2d');
+     context.fillStyle = 'rgb('+Math.round(Math.random()*64+64)+','+Math.round(Math.random()*64+64)+','+Math.round(Math.random()*64+64)+')';
+     context.fillRect(10,10,value,value); 
+   }
+ }
+// -->
+</script>
+<a href="#" onclick="display_message_02(document.getElementById('quest_02_input').value); return false">ここをクリック</a><br>
+結果： <canvas id="quest_02_result"></canvas>
+ <hr>
+
+ ■Javascript課題03<br>
+ 空欄を埋めて、足し算の計算結果が正しいか判断できるプログラムにしてください。<br>
+
+<xmp>
+<script type="text/javascript">
+<!--
+ var a1 = Math.round(Math.random() * 15 + 5);
+ var a2 = Math.round(Math.random() * 15 + 5);
+ function display_message_03(ans) {
+  var result_message = '';
+</xmp>
+<textarea id="quest_03_input" rows='10' placeholder="
+  // a1 + a2の結果が ansと一致した場合は、正解と表示する
+  if (a1 + a2 == ans) {
+   result_message = '正解';
+  } else {
+   result_message = '不正解';
+  }
+"></textarea>
+<xmp>
+  document.getElementById("quest_03_result").innerHTML=result_message;
+ }
+ document.write(a1 + " + " + a2 + " = ");
+// -->
+</script>
+<input type="text" value="" id="quest_03_ans" />
+
+<br><br>
+
+<a href="#" onclick="display_message_03(document.getElementById('quest_03_ans').value); return false;">ここをクリック</a><br>
+結果： [<label id="quest_03_result"></label>]
+</xmp>
+<script type="text/javascript">
+<!--
+ var a1 = Math.round(Math.random() * 15 + 5);
+ var a2 = Math.round(Math.random() * 15 + 5);
+ function display_message_03(ans) {
+  var result_message = '';
+
+  //eval(document.getElementById('quest_03_input'));
+
+  document.getElementById("quest_03_result").innerHTML=result_message;
+ }
+ document.write(a1 + " + " + a2 + " = ");
+// -->
+</script>
+<input type="text" value="" id="quest_03_ans" placeholder="計算結果" />
+
+<br><br>
+
+<a href="#" onclick="display_message_03(document.getElementById('quest_03_ans').value); return false;">ここをクリック</a><br>
+結果： [<label id="quest_03_result"></label>]
+</body>
+</html>
